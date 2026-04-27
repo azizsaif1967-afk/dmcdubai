@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+html, body { background: #fff; color: #000; }
+[dir="rtl"] { font-family: var(--font-ar, 'IBM Plex Sans Arabic'), system-ui, sans-serif; }
+
+::selection { background: #C0161C; color: #fff; }

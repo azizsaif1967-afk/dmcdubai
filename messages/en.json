@@ -1,0 +1,11 @@
+{
+  "nav": { "services": "Services", "industries": "Industries", "tools": "Tools", "insights": "Insights", "about": "About", "contact": "Contact", "login": "Client Login" },
+  "cta": { "getStarted": "Get Started", "estimateCost": "Estimate Cost", "talkToExpert": "Talk to an Expert" },
+  "hero": {
+    "eyebrow": "Dubai Business Setup, Done Right",
+    "headline": "Launch your Dubai company with confidence.",
+    "sub": "Mainland, free zone, and offshore setups, licensing, visas, and ongoing compliance — handled by senior consultants."
+  },
+  "kpi": { "years": "Years of experience", "companies": "Companies launched", "approval": "Approval rate", "freezones": "Free zones covered" },
+  "footer": { "rights": "All rights reserved." }
+}
