@@ -34,11 +34,20 @@ export function CostCalculator({ locale }: { locale: Locale }) {
     const parsed = Inputs.safeParse(data);
     if (!parsed.success) return;
     setLoading(true);
-    const res = await fetch('/api/calculator', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...parsed.data, locale }),
-    }).then((r) => r.json());
-    setResult(res); setStep(5); setLoading(false);
+    const PRICING = {
+      jurisdiction: { mainland: 12500, freezone: 11500, offshore: 8500 },
+      activityMultiplier: { trading: 1.0, services: 0.85, industrial: 1.4, ecommerce: 0.9, consulting: 0.8 },
+      visaCost: 4200,
+      office: { flexi: 8000, shared: 18000, dedicated: 45000, warehouse: 95000 },
+      govFees: 6500, ourFee: 4500,
+    };
+    const i = parsed.data;
+    const license = Math.round(PRICING.jurisdiction[i.jurisdiction] * PRICING.activityMultiplier[i.activity]);
+    const visas = i.visas * PRICING.visaCost;
+    const office = PRICING.office[i.officeType];
+    const breakdown = { license, visas, office, govFees: PRICING.govFees, ourFee: PRICING.ourFee };
+    const total = Object.values(breakdown).reduce((a, b) => a + b, 0);
+    setResult({ total, breakdown }); setStep(5); setLoading(false);
   }
 
   return (

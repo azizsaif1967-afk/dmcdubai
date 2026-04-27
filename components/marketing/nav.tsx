@@ -25,10 +25,9 @@ export function Nav({ locale }: { locale: Locale }) {
           <Link href={`/${otherLocale}`} className="text-sm hover:underline">
             {otherLocale === 'ar' ? 'العربية' : 'EN'}
           </Link>
-          <Link href={`/${locale}/client-login`} className="hidden md:inline text-sm">{t.login}</Link>
-          <Link href={`/${locale}/contact`} className="bg-brand-red text-white h-10 px-5 inline-flex items-center text-sm font-medium">
+          <a href={`mailto:info@dmcdubai.com`} className="bg-brand-red text-white h-10 px-5 inline-flex items-center text-sm font-medium">
             {t.contact}
-          </Link>
+          </a>
         </div>
       </div>
     </header>
